@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Détails de la Personne{% endblock %}
+
+{% block content %}
+<h1>{{ personne.prenom }} {{ personne.nom }}</h1>
+<p>Email: {{ personne.email }}</p>
+<p>Téléphone: {{ personne.telephone }}</p>
+<p>Date de naissance: {{ personne.date_naissance }}</p>
+<p>Adresse: {{ personne.adresse }}</p>
+<p>Centre de Formation: {{ personne.centre_formation.nom }}</p>
+{% endblock %}

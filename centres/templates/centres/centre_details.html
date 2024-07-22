@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Détails du Centre{% endblock %}
+
+{% block content %}
+<h1>{{ centre.nom }}</h1>
+<p>{{ centre.adresse }}, {{ centre.ville }}, {{ centre.code_postal }}, {{ centre.pays }}</p>
+<p>{{ centre.telephone }}</p>
+<p>{{ centre.email }}</p>
+<p>{{ centre.site_web }}</p>
+<p>{{ centre.description }}</p>
+
+<h2>Formations proposées</h2>
+<ul>
+    {% for formation in centre.formations.all %}
+    <li>
+        <a href="{% url 'formation_detail' formation.pk %}">{{ formation.titre }}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<h2>Personnes associées</h2>
+<ul>
+    {% for personne in centre.personnes.all %}
+    <li>
+        <a href="{% url 'personne_detail' personne.pk %}">{{ personne.prenom }} {{ personne.nom }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

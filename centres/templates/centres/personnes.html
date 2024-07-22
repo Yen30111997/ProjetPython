@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Personnes{% endblock %}
+
+{% block content %}
+<h1>Personnes</h1>
+<ul>
+    {% for personne in personnes %}
+    <li>
+        <a href="{% url 'personne_detail' personne.pk %}">{{ personne.prenom }} {{ personne.nom }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Détails de la Session{% endblock %}
+
+{% block content %}
+<h1>{{ session.formation.titre }}</h1>
+<p>Date de début: {{ session.date_debut }}</p>
+<p>Date de fin: {{ session.date_fin }}</p>
+<p>Lieu: {{ session.lieu }}</p>
+<p>Formateur: {{ session.formateur.prenom }} {{ session.formateur.nom }}</p>
+
+<h2>Commentaires</h2>
+<ul>
+    {% for commentaire in session.commentaires.all %}
+    <li>
+        <p>{{ commentaire.auteur.prenom }} {{ commentaire.auteur.nom }}: {{ commentaire.texte }}</p>
+        <p>Date: {{ commentaire.date_commentaire }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Formations{% endblock %}
+
+{% block content %}
+<h1>Formations</h1>
+<ul>
+    {% for formation in formations %}
+    <li>
+        <a href="{% url 'formation_detail' formation.pk %}">{{ formation.titre }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

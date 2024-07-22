@@ -1,0 +1,21 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+</head>
+<body>
+    <h1>Bienvenue sur le site de Gestion des Formations</h1>
+    <nav>
+        <ul>
+            <li><a href="{% url 'centre_list' %}">Centres de Formation</a></li>
+            <li><a href="{% url 'personne_list' %}">Personnes</a></li>
+            <li><a href="{% url 'formation_list' %}">Formations</a></li>
+            <li><a href="{% url 'session_list' %}">Sessions</a></li>
+            <li><a href="{% url 'commentaire_list' %}">Commentaires</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

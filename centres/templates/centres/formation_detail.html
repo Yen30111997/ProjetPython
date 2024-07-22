@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Détails de la Formation{% endblock %}
+
+{% block content %}
+<h1>{{ formation.titre }}</h1>
+<p>{{ formation.description }}</p>
+<p>Début: {{ formation.date_debut }}</p>
+<p>Fin: {{ formation.date_fin }}</p>
+<p>Niveau: {{ formation.niveau }}</p>
+
+<h2>Sessions</h2>
+<ul>
+    {% for session in formation.sessions.all %}
+    <li>
+        <a href="{% url 'session_detail' session.pk %}">{{ session.date_debut }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
