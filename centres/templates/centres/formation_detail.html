@@ -1,20 +1,22 @@
-{% extends 'base.html' %}
-
-{% block title %}Détails de la Formation{% endblock %}
-
-{% block content %}
-<h1>{{ formation.titre }}</h1>
-<p>{{ formation.description }}</p>
-<p>Début: {{ formation.date_debut }}</p>
-<p>Fin: {{ formation.date_fin }}</p>
-<p>Niveau: {{ formation.niveau }}</p>
-
-<h2>Sessions</h2>
-<ul>
-    {% for session in formation.sessions.all %}
-    <li>
-        <a href="{% url 'session_detail' session.pk %}">{{ session.date_debut }}</a>
-    </li>
-    {% endfor %}
-</ul>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Détail de la formation</title>
+</head>
+<body>
+    <h1>{{ formation.titre }}</h1>
+    <p>Description: {{ formation.description }}</p>
+    <p>Centre de formation: {{ formation.centre_formation.nom }}</p>
+    <p>Date de début: {{ formation.date_debut }}</p>
+    <p>Date de fin: {{ formation.date_fin }}</p>
+    <p>Niveau: {{ formation.niveau }}</p>
+    <p>Durée: {{ formation.duree }} jours</p>
+    <h2>Sessions</h2>
+    <ul>
+        {% for session in formation.sessions.all %}
+            <li>{{ session.date_debut }} - {{ session.date_fin }} ({{ session.lieu }})</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'formation_list' %}">Retour à la liste des formations</a>
+</body>
+</html>

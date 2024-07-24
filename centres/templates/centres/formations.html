@@ -1,14 +1,18 @@
-{% extends 'base.html' %}
-
-{% block title %}Formations{% endblock %}
-
-{% block content %}
-<h1>Formations</h1>
-<ul>
-    {% for formation in formations %}
-    <li>
-        <a href="{% url 'formation_detail' formation.pk %}">{{ formation.titre }}</a>
-    </li>
-    {% endfor %}
-</ul>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des formations</title>
+</head>
+<body>
+    <h1>Liste des formations</h1>
+    <ul>
+        {% for formation in formations %}
+            <li>
+                <a href="{% url 'formation_detail' formation.pk %}">{{ formation.titre }}</a>
+                <p>{{ formation.description }}</p>
+                <p>Centre de formation: {{ formation.centre_formation.nom }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

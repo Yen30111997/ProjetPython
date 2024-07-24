@@ -1,14 +1,14 @@
-{% extends 'base.html' %}
-
-{% block title %}Centres de Formation{% endblock %}
-
-{% block content %}
-<h1>Centres de Formation</h1>
-<ul>
-    {% for centre in centres %}
-    <li>
-        <a href="{% url 'centre_detail' centre.pk %}">{{ centre.nom }}</a>
-    </li>
-    {% endfor %}
-</ul>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Centres de Formation</title>
+</head>
+<body>
+    <h1>Liste des Centres de Formation</h1>
+    <ul>
+        {% for centre in centres %}
+            <li><a href="{% url 'centre_detail' centre.pk %}">{{ centre.nom }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
