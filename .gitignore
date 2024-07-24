@@ -1,0 +1,32 @@
+# ignorer les fichiers Mac
+.DS*
+
+# Ignorer les fichiers de migration
+*.pyc
+__pycache__/
+migrations/
+
+# Ignorer les fichiers d'environnement virtuel
+venv/
+.env
+
+# Ignorer les fichiers de configuration locaux
+*.local
+*.log
+
+# Ignorer les fichiers générés par l'IDE
+.vscode/
+.idea/
+
+# Ignorer les fichiers temporaires
+*~
+*.swp
+Explication des règles :
+
+*.sqlite3 : Ignore tous les fichiers avec l'extension .sqlite3.
+db.sqlite3 : Ignore un fichier spécifique nommé db.sqlite3.
+__pycache__/ : Ignore le répertoire __pycache__.
+venv/ : Ignore le répertoire de l'environnement virtuel nommé venv.
+*.local : Ignore les fichiers avec l'extension .local.
+.vscode/ et .idea/ : Ignorer les répertoires de configuration d'IDE comme Visual Studio Code et IntelliJ IDEA.
+*~ et *.swp : Ignorer les fichiers temporaires.
