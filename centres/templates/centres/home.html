@@ -42,6 +42,17 @@
                 <p>Lisez les retours de nos anciens participants pour mieux comprendre nos services.</p>
             </div>
         </section>
+        <section class="comment-section">
+            <h2>Commentaires</h2>
+            {% for commentaire in commentaires %}
+                <div class="comment-item">
+                    <p><strong>{{ commentaire.auteur }}</strong> ({{ commentaire.date_commentaire|date:"d/m/Y H:i" }}):</p>
+                    <p>{{ commentaire.texte }}</p>
+                </div>
+            {% empty %}
+                <p>Aucun commentaire pour le moment.</p>
+            {% endfor %}
+        </section>
     </main>
     <footer>
         <p>&copy; 2024 Yam Academy - Tous droits réservés.</p>

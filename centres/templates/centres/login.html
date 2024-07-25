@@ -1,4 +1,4 @@
-<!-- templates/centres/commentaire_form.html -->
+<!-- templates/centres/login.html -->
 {% load static %}
 
 <!DOCTYPE html>
@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter un Commentaire - Yam Academy</title>
+    <title>Connexion - Yam Academy</title>
     <link rel="stylesheet" href="{% static 'centres/css/style.css' %}">
 </head>
 <body>
@@ -14,16 +14,16 @@
         <nav>
             <ul>
                 <li><a href="{% url 'centres:home' %}">Accueil</a></li>
-                <li><a href="{% url 'centres:logout' %}">Déconnexion</a></li>
+                <li><a href="{% url 'centres:register' %}">Inscription</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h1>Ajouter un Commentaire</h1>
+        <h1>Connexion</h1>
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Ajouter Commentaire</button>
+            <button type="submit">Se connecter</button>
         </form>
     </main>
 </body>

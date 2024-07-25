@@ -1,10 +1,14 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import CentreFormation, Personne, Formation, SessionFormation, Commentaire
 from .forms import CentreFormationForm, PersonneForm, FormationForm, SessionFormationForm, CommentaireForm
-
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.decorators import login_required
 
 def home(request):
-    return render(request, 'centres/home.html')
+    commentaires = Commentaire.objects.all()  # Récupère tous les commentaires
+    return render(request, 'centres/home.html', {'commentaires': commentaires})
+
 
 def centre_list(request):
     centres = CentreFormation.objects.all()
@@ -43,7 +47,32 @@ def session_create(request):
     else:
         form = SessionFormationForm()
     return render(request, 'centres/session_form.html', {'form': form})
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('centres:home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'centres/register.html', {'form': form})
 
+def login_view(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('centres:home')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'centres/login.html', {'form': form})
+
+def logout_view(request):
+    logout(request)
+    return redirect('centres:home')
+@login_required
 def commentaire_create(request):
     if request.method == 'POST':
         form = CommentaireForm(request.POST)

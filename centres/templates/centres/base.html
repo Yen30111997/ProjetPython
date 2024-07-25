@@ -1,23 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Centres de Formation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centres de Formation - Yam Academy</title>
+    <link rel="stylesheet" href="{% static 'centres/css/style.css' %}">
 </head>
 <body>
-    <nav>
-        <a href="{% url 'centres:home' %}">Accueil</a>
-        <a href="{% url 'centres:centre_list' %}">Centres</a> 
-        <a href="{% url 'centres:formation_list' %}">Formations</a>
-        <a href="{% url 'centres:session_list' %}">Sessions</a>
-        <a href="{% url 'centres:commentaire_list' %}">Commentaires</a>
-        <a href="{% url 'centres:personne_create' %}">Ajouter Personne</a>
-        <a href="{% url 'centres:formation_create' %}">Ajouter Formation</a>
-        <a href="{% url 'centres:session_create' %}">Ajouter Session</a>
-        <a href="{% url 'centres:commentaire_create' %}">Ajouter Commentaire</a>
-    </nav>
-    <div>
-        {% block content %}
-        {% endblock %}
-    </div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'centres:home' %}">Accueil</a></li>
+                <li><a href="{% url 'centres:centre_list' %}">Centres</a></li>
+                <li><a href="{% url 'centres:formation_list' %}">Formations</a></li>
+                <li><a href="{% url 'centres:session_list' %}">Sessions</a></li>
+                <li><a href="{% url 'centres:commentaire_list' %}">Commentaires</a></li>
+                <li><a href="{% url 'centres:personne_create' %}">Ajouter Personne</a></li>
+                <li><a href="{% url 'centres:formation_create' %}">Ajouter Formation</a></li>
+                <li><a href="{% url 'centres:session_create' %}">Ajouter Session</a></li>
+                <li><a href="{% url 'centres:commentaire_create' %}">Ajouter Commentaire</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div>
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Yam Academy - Tous droits réservés.</p>
+    </footer>
 </body>
 </html>
