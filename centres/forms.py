@@ -1,15 +1,10 @@
 from django import forms
-from .models import CentreFormation, Personne, Formation, SessionFormation, Commentaire
+from .models import Commentaire, Formation, SessionFormation, Personne
 
-class CentreFormationForm(forms.ModelForm):
+class CommentaireForm(forms.ModelForm):
     class Meta:
-        model = CentreFormation
-        fields = ['nom', 'adresse', 'ville', 'code_postal', 'pays', 'telephone', 'email', 'site_web', 'description', 'mots_cles']
-
-class PersonneForm(forms.ModelForm):
-    class Meta:
-        model = Personne
-        fields = ['nom', 'prenom', 'email', 'telephone', 'date_naissance', 'adresse', 'attentes']
+        model = Commentaire
+        fields = ['texte']
 
 class FormationForm(forms.ModelForm):
     class Meta:
@@ -21,7 +16,7 @@ class SessionFormationForm(forms.ModelForm):
         model = SessionFormation
         fields = ['formation', 'date_debut', 'date_fin', 'lieu', 'formateur']
 
-class CommentaireForm(forms.ModelForm):
+class PersonneForm(forms.ModelForm):
     class Meta:
-        model = Commentaire
-        fields = ['session_formation', 'auteur', 'texte']
+        model = Personne
+        fields = ['telephone', 'date_naissance', 'adresse', 'attentes']

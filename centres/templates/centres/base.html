@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centres de Formation - Yam Academy</title>
-    <link rel="stylesheet" href="{% static 'centres/css/style.css' %}">
+    <title>{% block title %}Yam Academy{% endblock %}</title>
+    {% load static %} <!-- Cette ligne doit être présente -->
+    <link rel="stylesheet" href="{% static 'centres/css/style.css' %}"> <!-- Assurez-vous que ce chemin est correct -->
 </head>
 <body>
     <header>
@@ -15,18 +16,18 @@
                 <li><a href="{% url 'centres:formation_list' %}">Formations</a></li>
                 <li><a href="{% url 'centres:session_list' %}">Sessions</a></li>
                 <li><a href="{% url 'centres:commentaire_list' %}">Commentaires</a></li>
-                <li><a href="{% url 'centres:personne_create' %}">Ajouter Personne</a></li>
-                <li><a href="{% url 'centres:formation_create' %}">Ajouter Formation</a></li>
-                <li><a href="{% url 'centres:session_create' %}">Ajouter Session</a></li>
-                <li><a href="{% url 'centres:commentaire_create' %}">Ajouter Commentaire</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Déconnexion</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Connexion</a></li>
+                    <li><a href="{% url 'centres:register' %}">Inscription</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
     <main>
-        <div>
-            {% block content %}
-            {% endblock %}
-        </div>
+        {% block content %}
+        {% endblock %}
     </main>
     <footer>
         <p>&copy; 2024 Yam Academy - Tous droits réservés.</p>

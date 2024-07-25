@@ -1,5 +1,6 @@
-from django.urls import path, include
-from django.contrib import admin
+# centres/urls.py
+
+from django.urls import path
 from . import views
 
 app_name = 'centres'
@@ -15,12 +16,5 @@ urlpatterns = [
     path('formations/', views.formation_list, name='formation_list'),  # Liste des formations
     path('sessions/', views.session_list, name='session_list'),  # Liste des sessions de formation
     path('commentaires/', views.commentaire_list, name='commentaire_list'),  # Liste des commentaires
+    path('register/', views.register, name='register'),  # Assurez-vous que ceci est défini
 ]
-
-main_urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('centres.urls')),  # Inclure les URLs de l'application 'centres'
-    path('accounts/', include('django.contrib.auth.urls')),  # Inclure les URLs d'authentification
-]
-
-urlpatterns += main_urlpatterns

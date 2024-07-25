@@ -1,26 +1,10 @@
-<!-- templates/centres/home.html -->
+{% extends 'centres/base.html' %}
+
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page d'Accueil - Yam Academy</title>
-    <link rel="stylesheet" href="{% static 'centres/css/style.css' %}">
-</head>
-<body>
+{% block content %}
     <header>
         <img src="{% static 'centres/images/accueil.jpg' %}" alt="Image d'Accueil" class="header-image">
-        <nav>
-            <ul>
-                <li><a href="{% url 'centres:home' %}">Accueil</a></li>
-                <li><a href="{% url 'centres:centre_list' %}">Centres</a></li>
-                <li><a href="{% url 'centres:formation_list' %}">Formations</a></li>
-                <li><a href="{% url 'centres:session_list' %}">Sessions</a></li>
-                <li><a href="{% url 'centres:commentaire_list' %}">Commentaires</a></li>
-            </ul>
-        </nav>
     </header>
     <main>
         <section class="welcome-section">
@@ -46,7 +30,7 @@
             <h2>Commentaires</h2>
             {% for commentaire in commentaires %}
                 <div class="comment-item">
-                    <p><strong>{{ commentaire.auteur }}</strong> ({{ commentaire.date_commentaire|date:"d/m/Y H:i" }}):</p>
+                    <p><strong>{{ commentaire.auteur.user.username }}</strong> ({{ commentaire.date_commentaire|date:"d/m/Y H:i" }}):</p>
                     <p>{{ commentaire.texte }}</p>
                 </div>
             {% empty %}
@@ -54,8 +38,4 @@
             {% endfor %}
         </section>
     </main>
-    <footer>
-        <p>&copy; 2024 Yam Academy - Tous droits réservés.</p>
-    </footer>
-</body>
-</html>
+{% endblock %}

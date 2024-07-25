@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User  # Importer le modèle User
 
 class MotsCles(models.Model):
     mot = models.CharField(max_length=100, unique=True)
@@ -22,16 +23,14 @@ class CentreFormation(models.Model):
         return self.nom
 
 class Personne(models.Model):
-    nom = models.CharField(max_length=255)
-    prenom = models.CharField(max_length=255)
-    email = models.EmailField(unique=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)  # Lier avec le modèle User
     telephone = models.CharField(max_length=20, blank=True, null=True)
     date_naissance = models.DateField()
     adresse = models.CharField(max_length=255, blank=True, null=True)
     attentes = models.ManyToManyField(MotsCles, related_name='personnes', blank=True)
-
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     def __str__(self):
-        return f"{self.prenom} {self.nom}"
+        return f"{self.user.first_name} {self.user.last_name}"
 
 class Formation(models.Model):
     titre = models.CharField(max_length=255)

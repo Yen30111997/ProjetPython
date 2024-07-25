@@ -4,7 +4,7 @@
     <h1>Formations</h1>
     <ul>
         {% for formation in formations %}
-            <li>{{ formation.titre }} - {{ formation.date_debut }} à {{ formation.date_fin }}</li>
+            <li><a href="{% url 'centres:formation_detail' formation.pk %}">{{ formation.titre }} - {{ formation.date_debut|date:"d/m/Y" }} à {{ formation.date_fin|date:"d/m/Y" }}</a></li>
         {% endfor %}
     </ul>
 {% endblock %}

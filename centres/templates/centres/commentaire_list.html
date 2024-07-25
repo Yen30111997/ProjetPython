@@ -4,7 +4,7 @@
     <h1>Commentaires</h1>
     <ul>
         {% for commentaire in commentaires %}
-            <li>{{ commentaire.auteur }} a commenté : "{{ commentaire.texte }}" le {{ commentaire.date_commentaire }}</li>
+            <li>{{ commentaire.auteur.user.username }} a commenté : "{{ commentaire.texte }}" le {{ commentaire.date_commentaire|date:"d/m/Y H:i" }}</li>
         {% endfor %}
     </ul>
 {% endblock %}
