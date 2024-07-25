@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Yam Academy{% endblock %}</title>
-    {% load static %} <!-- Cette ligne doit être présente -->
-    <link rel="stylesheet" href="{% static 'centres/css/style.css' %}"> <!-- Assurez-vous que ce chemin est correct -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'centres/css/style.css' %}">
 </head>
 <body>
     <header>
@@ -17,7 +17,12 @@
                 <li><a href="{% url 'centres:session_list' %}">Sessions</a></li>
                 <li><a href="{% url 'centres:commentaire_list' %}">Commentaires</a></li>
                 {% if user.is_authenticated %}
-                    <li><a href="{% url 'logout' %}">Déconnexion</a></li>
+                    <li>
+                        <form action="{% url 'logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Déconnexion</button>
+                        </form>
+                    </li>
                 {% else %}
                     <li><a href="{% url 'login' %}">Connexion</a></li>
                     <li><a href="{% url 'centres:register' %}">Inscription</a></li>
