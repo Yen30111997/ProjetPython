@@ -1,0 +1,9 @@
+{% extends 'centres/base.html' %}
+
+{% block content %}
+    <h1>{{ centre.nom }}</h1>
+    <p>{{ centre.adresse }}, {{ centre.ville }} - {{ centre.code_postal }}, {{ centre.pays }}</p>
+    <p>{{ centre.description }}</p>
+    <p>Mots Clés: {% for mot in centre.mots_cles.all %}{{ mot.mot }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+    <p><a href="{% url 'centres:centre_list' %}">Retour</a></p>
+{% endblock %}

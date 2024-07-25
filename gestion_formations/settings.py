@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-cr-$+2jzf7#8d3^2kdf^6$w^86^+^qmbol=al%l2gn^(=!lmpk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# Define the allowed hosts for development
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']  # Ajoutez d'autres hôtes si nécessaire
 
 # Application definition
 
@@ -111,7 +112,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'centres/static')]
 
 # Redirect URLs after login and logout
 LOGIN_REDIRECT_URL = 'home'

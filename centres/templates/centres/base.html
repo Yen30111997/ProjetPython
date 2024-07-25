@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Centres de Formation</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'centres:home' %}">Accueil</a>
+        <a href="{% url 'centres:centre_list' %}">Centres</a> 
+        <a href="{% url 'centres:formation_list' %}">Formations</a>
+        <a href="{% url 'centres:session_list' %}">Sessions</a>
+        <a href="{% url 'centres:commentaire_list' %}">Commentaires</a>
+        <a href="{% url 'centres:personne_create' %}">Ajouter Personne</a>
+        <a href="{% url 'centres:formation_create' %}">Ajouter Formation</a>
+        <a href="{% url 'centres:session_create' %}">Ajouter Session</a>
+        <a href="{% url 'centres:commentaire_create' %}">Ajouter Commentaire</a>
+    </nav>
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

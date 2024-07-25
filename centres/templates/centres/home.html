@@ -1,18 +1,50 @@
+<!-- templates/centres/home.html -->
+{% load static %}
+
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Page d'accueil</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'Accueil - Yam Academy</title>
+    <link rel="stylesheet" href="{% static 'centres/css/style.css' %}">
 </head>
 <body>
-    <h1>Bienvenue sur le site de gestion des formations</h1>
-    <nav>
-        <ul>
-            <li><a href="{% url 'centre_list' %}">Centres de Formation</a></li>
-            <li><a href="{% url 'personne_list' %}">Personnes</a></li>
-            <li><a href="{% url 'formation_list' %}">Formations</a></li>
-            <li><a href="{% url 'session_list' %}">Sessions de Formation</a></li>
-            <li><a href="{% url 'commentaire_list' %}">Commentaires</a></li>
-        </ul>
-    </nav>
+    <header>
+        <img src="{% static 'centres/images/accueil.jpg' %}" alt="Image d'Accueil" class="header-image">
+        <nav>
+            <ul>
+                <li><a href="{% url 'centres:home' %}">Accueil</a></li>
+                <li><a href="{% url 'centres:centre_list' %}">Centres</a></li>
+                <li><a href="{% url 'centres:formation_list' %}">Formations</a></li>
+                <li><a href="{% url 'centres:session_list' %}">Sessions</a></li>
+                <li><a href="{% url 'centres:commentaire_list' %}">Commentaires</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="welcome-section">
+            <h1>Bienvenue à la Yam Academy</h1>
+            <p>Nous offrons des formations de qualité pour vous aider à développer vos compétences.</p>
+        </section>
+        <section class="features">
+            <h2>Nos Services</h2>
+            <div class="feature-item">
+                <h3>Formations</h3>
+                <p>Explorez nos formations pour acquérir de nouvelles compétences.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Sessions</h3>
+                <p>Participez à des sessions interactives pour approfondir vos connaissances.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Commentaires</h3>
+                <p>Lisez les retours de nos anciens participants pour mieux comprendre nos services.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Yam Academy - Tous droits réservés.</p>
+    </footer>
 </body>
 </html>

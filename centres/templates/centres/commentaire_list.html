@@ -1,0 +1,10 @@
+{% extends 'centres/base.html' %}
+
+{% block content %}
+    <h1>Commentaires</h1>
+    <ul>
+        {% for commentaire in commentaires %}
+            <li>{{ commentaire.auteur }} a commenté : "{{ commentaire.texte }}" le {{ commentaire.date_commentaire }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

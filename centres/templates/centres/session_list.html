@@ -1,0 +1,10 @@
+{% extends 'centres/base.html' %}
+
+{% block content %}
+    <h1>Sessions de Formation</h1>
+    <ul>
+        {% for session in sessions %}
+            <li>{{ session.formation.titre }} - {{ session.date_debut }} à {{ session.date_fin }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

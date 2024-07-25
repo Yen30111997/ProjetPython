@@ -1,0 +1,58 @@
+/* centres/static/centres/css/style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background: #f4f4f4;
+    padding: 10px;
+    text-align: center;
+}
+
+.header-image {
+    max-width: 100%;
+    height: auto;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #007BFF; /* Bleu clair */
+}
+
+.welcome-section {
+    text-align: center;
+    padding: 20px;
+    background-color: #e9f6ff; /* Bleu clair pour la section de bienvenue */
+}
+
+.welcome-section h1 {
+    color: #007BFF; /* Bleu clair */
+}
+
+.features {
+    padding: 20px;
+}
+
+.feature-item {
+    margin: 20px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #f4f4f4;
+}
