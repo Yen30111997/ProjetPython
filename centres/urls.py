@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from django.contrib.auth import views as auth_views
 
 app_name = 'centres'
 
@@ -14,5 +15,6 @@ urlpatterns = [
     path('formations/', views.formation_list, name='formation_list'),  # Liste des formations
     path('sessions/', views.session_list, name='session_list'),  # Liste des sessions de formation
     path('commentaires/', views.commentaire_list, name='commentaire_list'),  # Liste des commentaires
-    path('register/', views.register, name='register'),  # Assurez-vous que ceci est défini
+    path('register/', views.register, name='register'),  # Page d'inscription
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),  # Pour la déconnexion
 ]

@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import CommentaireForm, FormationForm, SessionFormationForm, PersonneForm
 from .models import Commentaire, Formation, SessionFormation, Personne
+from .forms import CustomUserCreationForm
 
 def home(request):
     return render(request, 'centres/home.html')
@@ -19,23 +20,23 @@ def login_view(request):
     return render(request, 'centres/login.html', {'form': form})
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('login')  # Redirige vers la page de connexion après l'inscription
-    else:
-        form = UserCreationForm()
-    return render(request, 'registration/register.html', {'form': form})
-    return render(request, 'centres/register.html', {'form': form})
-def register_view(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
             return redirect('centres:home')
     else:
-        form = UserCreationForm()
+        form = CustomUserCreationForm()
+    return render(request, 'registration/register.html', {'form': form})
+def register_view(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('centres:home')
+    else:
+        form = CustomUserCreationForm()
     return render(request, 'centres/register.html', {'form': form})
 
 def logout_view(request):
