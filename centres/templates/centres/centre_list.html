@@ -1,10 +1,22 @@
+<!-- centres/templates/centres/centre_list.html -->
 {% extends 'centres/base.html' %}
 
+{% block title %}Liste des Centres{% endblock %}
+
 {% block content %}
-    <h1>Centres de Formation</h1>
-    <ul>
-        {% for centre in centres %}
-            <li><a href="{% url 'centres:centre_detail' centre.pk %}">{{ centre.nom }}</a></li>
-        {% endfor %}
-    </ul>
+<div class="centre-list">
+    {% if centres %}
+        <ul>
+            {% for centre in centres %}
+                <li>
+                    <h3>{{ centre.nom }}</h3>
+                    <p>{{ centre.adresse }}</p>
+                    <p>{{ centre.description }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucun centre trouvé.</p>
+    {% endif %}
+</div>
 {% endblock %}

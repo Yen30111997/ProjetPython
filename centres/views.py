@@ -5,6 +5,8 @@ from django.contrib import messages
 from .forms import CommentaireForm, FormationForm, SessionFormationForm, PersonneForm
 from .models import Commentaire, Formation, SessionFormation, Personne
 from .forms import CustomUserCreationForm
+from django.db.models import Q
+
 
 def home(request):
     return render(request, 'centres/home.html')
@@ -66,7 +68,13 @@ def centre_detail(request, pk):
     centre = get_object_or_404(CentreFormation, pk=pk)
     return render(request, 'centres/centre_detail.html', {'centre': centre})
 def formation_list(request):
-    formations = Formation.objects.all()
+    query = request.GET.get('q')
+    if query:
+        formations = Formation.objects.filter(titre__icontains=query)
+    else:
+        formations = Formation.objects.all()
+    return render(request, 'centres/formation_list.html', {'formations': formations})
+    
     return render(request, 'centres/formation_list.html', {'formations': formations})
 def formation_create(request):
     if request.method == 'POST':

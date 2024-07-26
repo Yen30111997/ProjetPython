@@ -1,10 +1,29 @@
+<!-- centres/templates/centres/formation_list.html -->
 {% extends 'centres/base.html' %}
 
+{% block title %}Liste des Formations{% endblock %}
+
 {% block content %}
-    <h1>Formations</h1>
-    <ul>
-        {% for formation in formations %}
-            <li><a href="{% url 'centres:formation_detail' formation.pk %}">{{ formation.titre }} - {{ formation.date_debut|date:"d/m/Y" }} à {{ formation.date_fin|date:"d/m/Y" }}</a></li>
-        {% endfor %}
-    </ul>
+<div class="search-container">
+    <form method="GET" action="{% url 'centres:formation_list' %}">
+        <input type="text" name="q" placeholder="Rechercher des formations..." value="{{ request.GET.q }}">
+        <button type="submit" class="btn btn-primary">Rechercher</button>
+    </form>
+</div>
+
+<div class="formation-list">
+    {% if formations %}
+        <ul>
+            {% for formation in formations %}
+                <li>
+                    <h3>{{ formation.titre }}</h3>
+                    <p>{{ formation.description }}</p>
+                    <a href="{% url 'centres:formation_detail' formation.pk %}" class="btn btn-secondary">En savoir plus</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucune formation trouvée.</p>
+    {% endif %}
+</div>
 {% endblock %}

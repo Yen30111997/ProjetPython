@@ -6,6 +6,7 @@
     <title>{% block title %}Yam Academy{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'centres/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
@@ -18,9 +19,9 @@
                 <li><a href="{% url 'centres:commentaire_list' %}">Commentaires</a></li>
                 {% if user.is_authenticated %}
                     <li>
-                        <form action="{% url 'logout' %}" method="post">
+                        <form action="{% url 'logout' %}" method="post" style="display: inline;">
                             {% csrf_token %}
-                            <button type="submit">Déconnexion</button>
+                            <button type="submit" class="btn btn-link">Déconnexion</button>
                         </form>
                     </li>
                 {% else %}
