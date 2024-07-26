@@ -6,6 +6,7 @@ from .forms import CommentaireForm, FormationForm, SessionFormationForm, Personn
 from .models import Commentaire, Formation, SessionFormation, Personne
 from .forms import CustomUserCreationForm
 from django.db.models import Q
+from .models import CentreFormation
 
 
 def home(request):

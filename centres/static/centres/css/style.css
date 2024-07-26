@@ -1,304 +1,91 @@
-/* centres/static/centres/css/style.css */
-
+/* Style global pour la police et la couleur de fond */
 body {
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: 'Roboto', sans-serif; /* Utilisation d'une police moderne */
+    color: #333;
+    background-color: #f9f9f9; /* Fond légèrement plus clair pour l'ensemble de la page */
     margin: 0;
     padding: 0;
-    color: #333;
-    background-color: #f9f9f9;
-    line-height: 1.6;
 }
 
 header {
-    background: #A9D6E5; /* Bleu pastel */
-    padding: 15px 20px;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-header nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+.header-image {
+    width: 100%;
+    height: auto;
+    border-bottom: 5px solid #a8dadc; /* Ajout d'une bordure colorée pour le bas de l'image */
+}
+
+.welcome-section {
+    text-align: center;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.features {
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
     justify-content: center;
+    margin-bottom: 30px;
 }
 
-header nav ul li {
-    margin: 0 15px;
-}
-
-header nav ul li a {
-    text-decoration: none;
-    color: #ffffff;
-    padding: 10px 15px;
-    transition: background 0.3s ease;
-}
-
-header nav ul li form {
-    display: inline;
-}
-
-header nav ul li button {
-    background: none;
-    border: none;
-    color: #ffffff;
-    cursor: pointer;
-    font-size: 16px;
-    padding: 10px 15px;
-    transition: background 0.3s ease;
-}
-
-header nav ul li a:hover,
-header nav ul li button:hover {
-    background: #89C2D9; /* Bleu pastel plus foncé */
-    border-radius: 5px;
-}
-
-main {
-    padding: 40px 20px;
-    background: #ffffff;
-    max-width: 1200px;
-    margin: 20px auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-
-footer {
-    text-align: center;
+.feature-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Masque le débordement du contenu */
+    max-width: 300px;
+    margin: 10px;
     padding: 20px;
-    background: #A9D6E5; /* Bleu pastel */
-    color: #ffffff;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 10px 0;
-    font-size: 16px;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background 0.3s ease;
-}
-
-.btn-primary {
-    background-color: #A9D6E5; /* Bleu pastel */
-    color: #ffffff;
-}
-
-.btn-secondary {
-    background-color: #89C2D9; /* Bleu pastel plus foncé */
-    color: #ffffff;
-}
-
-.btn-primary:hover,
-.btn-secondary:hover {
-    background-color: #61A5C2; /* Bleu pastel encore plus foncé */
-}
-
-.search-container {
-    max-width: 600px;
-    margin: 0 auto 20px;
     text-align: center;
 }
 
-.search-container input[type="text"] {
-    width: 70%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-right: 10px;
-    font-size: 16px;
+.feature-title {
+    display: block;
+    font-size: 1.5em;
+    color: #007bff; /* Couleur bleu vif pour le titre */
+    text-decoration: none; /* Enlève la décoration des liens */
+    margin-bottom: 10px;
+    transition: color 0.3s; /* Effet de transition pour le survol */
 }
 
-.search-container button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #A9D6E5; /* Bleu pastel */
-    color: #ffffff;
+.feature-title:hover {
+    color: #0056b3; /* Couleur du titre au survol */
 }
 
-.formation-list {
-    margin-top: 20px;
+.feature-description {
+    font-size: 1em;
+    line-height: 1.5; /* Améliore la lisibilité du texte */
+    color: #555; /* Couleur du texte descriptif */
 }
 
-.formation-list ul {
-    list-style-type: none;
-    padding: 0;
+.comment-section {
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-.formation-list li {
-    padding: 20px;
-    margin: 10px 0;
-    background: #E3F2FD; /* Bleu très clair */
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.comment-item {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 0;
 }
 
-.formation-list h3 {
-    margin-top: 0;
-    color: #007BFF;
+.comment-item:last-child {
+    border-bottom: none;
 }
 
-.formation-list p {
-    margin: 10px 0 0;
-    color: #555;
-}
-/* centres/static/centres/css/style.css */
-
-body {
-    font-family: 'Roboto', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    background-color: #f9f9f9;
-    line-height: 1.6;
+.comment-item p {
+    margin: 5px 0;
 }
 
-header {
-    background: #A9D6E5; /* Bleu pastel */
-    padding: 15px 20px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-header nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-}
-
-header nav ul li {
-    margin: 0 15px;
-}
-
-header nav ul li a {
-    text-decoration: none;
-    color: #ffffff;
-    padding: 10px 15px;
-    transition: background 0.3s ease;
-}
-
-header nav ul li form {
-    display: inline;
-}
-
-header nav ul li button {
-    background: none;
-    border: none;
-    color: #ffffff;
-    cursor: pointer;
-    font-size: 16px;
-    padding: 10px 15px;
-    transition: background 0.3s ease;
-}
-
-header nav ul li a:hover,
-header nav ul li button:hover {
-    background: #89C2D9; /* Bleu pastel plus foncé */
-    border-radius: 5px;
-}
-
-main {
-    padding: 40px 20px;
-    background: #ffffff;
-    max-width: 1200px;
-    margin: 20px auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #A9D6E5; /* Bleu pastel */
-    color: #ffffff;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 10px 0;
-    font-size: 16px;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background 0.3s ease;
-}
-
-.btn-primary {
-    background-color: #A9D6E5; /* Bleu pastel */
-    color: #ffffff;
-}
-
-.btn-secondary {
-    background-color: #89C2D9; /* Bleu pastel plus foncé */
-    color: #ffffff;
-}
-
-.btn-primary:hover,
-.btn-secondary:hover {
-    background-color: #61A5C2; /* Bleu pastel encore plus foncé */
-}
-
-.search-container {
-    max-width: 600px;
-    margin: 0 auto 20px;
-    text-align: center;
-}
-
-.search-container input[type="text"] {
-    width: 70%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-right: 10px;
-    font-size: 16px;
-}
-
-.search-container button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #A9D6E5; /* Bleu pastel */
-    color: #ffffff;
-}
-
-.formation-list {
-    margin-top: 20px;
-}
-
-.formation-list ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.formation-list li {
-    padding: 20px;
-    margin: 10px 0;
-    background: #E3F2FD; /* Bleu très clair */
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.formation-list h3 {
-    margin-top: 0;
-    color: #007BFF;
-}
-
-.formation-list p {
-    margin: 10px 0 0;
-    color: #555;
+.comment-item strong {
+    color: #007bff; /* Couleur du nom de l'auteur */
+    font-weight: bold;
 }
