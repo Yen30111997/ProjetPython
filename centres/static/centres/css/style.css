@@ -1,21 +1,36 @@
 /* Style global pour la police et la couleur de fond */
 body {
-    font-family: 'Roboto', sans-serif; /* Utilisation d'une police moderne */
+    font-family: 'Roboto', sans-serif;
     color: #333;
-    background-color: #f9f9f9; /* Fond légèrement plus clair pour l'ensemble de la page */
+    background-color: #f9f9f9;
     margin: 0;
     padding: 0;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 20px;
+header .logo {
+    width: 100px;  /* Taille ajustée pour le logo */
+    height: auto; /* Maintient le ratio de l'image */
+    max-height: 100px; /* Limite la hauteur maximale à 50 pixels */
+    display: inline-block;
+    vertical-align: middle; /* Aligne verticalement le logo avec le texte du site */
+    object-fit: contain; /* Garde le rapport hauteur/largeur de l'image */
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.brand-name {
+    font-size: 1.5em;
+    color: #007bff;
+    font-weight: bold;
 }
 
 .header-image {
     width: 100%;
     height: auto;
-    border-bottom: 5px solid #a8dadc; /* Ajout d'une bordure colorée pour le bas de l'image */
+    border-bottom: 5px solid #a8dadc;
 }
 
 .welcome-section {
@@ -39,7 +54,7 @@ header {
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Masque le débordement du contenu */
+    overflow: hidden;
     max-width: 300px;
     margin: 10px;
     padding: 20px;
@@ -49,20 +64,21 @@ header {
 .feature-title {
     display: block;
     font-size: 1.5em;
-    color: #007bff; /* Couleur bleu vif pour le titre */
-    text-decoration: none; /* Enlève la décoration des liens */
+    color: #007bff;
+    text-decoration: none;
     margin-bottom: 10px;
-    transition: color 0.3s; /* Effet de transition pour le survol */
+    transition: color 0.3s, transform 0.3s;
 }
 
 .feature-title:hover {
-    color: #0056b3; /* Couleur du titre au survol */
+    color: #0056b3;
+    transform: scale(1.05);
 }
 
 .feature-description {
     font-size: 1em;
-    line-height: 1.5; /* Améliore la lisibilité du texte */
-    color: #555; /* Couleur du texte descriptif */
+    line-height: 1.5;
+    color: #555;
 }
 
 .comment-section {
@@ -86,6 +102,18 @@ header {
 }
 
 .comment-item strong {
-    color: #007bff; /* Couleur du nom de l'auteur */
+    color: #007bff;
     font-weight: bold;
+}
+
+/* Mise en page réactive */
+@media (max-width: 768px) {
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature-card {
+        max-width: 100%;
+    }
 }
