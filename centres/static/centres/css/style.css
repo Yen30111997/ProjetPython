@@ -19,16 +19,35 @@ header .logo {
 }
 
 /* Styles pour la barre de navigation */
-.navbar-brand {
+.navbar {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    background-color: #007bff;
+    padding: 10px 20px;
+    color: white;
 }
 
-.brand-name {
-    font-size: 1.5em;
-    color: #007bff;
-    font-weight: bold;
-    margin-left: 10px; /* Espacement entre le logo et le nom de la marque */
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin-left: 20px;
+}
+
+/* Styles pour les liens de la barre de navigation */
+.navbar ul li a:hover {
+    text-decoration: underline;
 }
 
 /* Styles pour l'image d'en-tête */
@@ -124,6 +143,12 @@ form {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 form .form-group {

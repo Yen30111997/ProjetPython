@@ -22,6 +22,12 @@ class CentreFormation(models.Model):
     def __str__(self):
         return self.nom
 
+class Attente(models.Model):
+    description = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.description
+
 class Personne(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)  # Lier avec le modèle User
     telephone = models.CharField(max_length=20, blank=True, null=True)
@@ -30,8 +36,7 @@ class Personne(models.Model):
     attentes = models.ManyToManyField(MotsCles, related_name='personnes', blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     def __str__(self):
-        return f"{self.user.first_name} {self.user.last_name}"
-
+        return self.user.username
 class Formation(models.Model):
     titre = models.CharField(max_length=255)
     description = models.TextField()
@@ -63,7 +68,10 @@ class Commentaire(models.Model):
     date_commentaire = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return f"Commentaire de {self.auteur} sur {self.session_formation}"
+        return f"Commentaire de {self.auteur.user.username} le {self.date_commentaire}"
+
+        # return f"{self.auteur.username} - {self.date_commentaire.strftime('%d/%m/%Y %H:%M')}"
+        # return f"Commentaire de {self.auteur} sur {self.session_formation}"
 
 class Actualite(models.Model):
     titre = models.CharField(max_length=255)

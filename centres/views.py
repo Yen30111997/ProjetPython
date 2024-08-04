@@ -1,6 +1,6 @@
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .forms import CommentaireForm, FormationForm, SessionFormationForm, PersonneForm
 from .models import Commentaire, Formation, SessionFormation, Personne
@@ -58,10 +58,14 @@ def commentaire_create(request, session_id):
             return redirect('centres:session_detail', session_id=session.id)
     else:
         form = CommentaireForm()
-    return render(request, 'centres/commentaire_form.html', {'form': form})
+    return render(request, 'centres/commentaire_form.html', {'form': form, 'session': session})
 def commentaire_list(request):
     commentaires = Commentaire.objects.all()
     return render(request, 'centres/commentaire_list.html', {'commentaires': commentaires})
+# def commentaire_list(request, session_id):
+#     session = get_object_or_404(SessionFormation, pk=session_id)
+#     commentaires = Commentaire.objects.filter(session_formation=session)
+#     return render(request, 'centres/commentaire_list.html', {'session': session, 'commentaires': commentaires})
 def centre_list(request):
     centres = CentreFormation.objects.all()
     return render(request, 'centres/centre_list.html', {'centres': centres})
@@ -89,7 +93,6 @@ def formation_create(request):
 def session_list(request):
     sessions = SessionFormation.objects.all()
     return render(request, 'centres/session_list.html', {'sessions': sessions})
-
 def session_create(request):
     if request.method == 'POST':
         form = SessionFormationForm(request.POST)
@@ -99,6 +102,19 @@ def session_create(request):
     else:
         form = SessionFormationForm()
     return render(request, 'centres/session_form.html', {'form': form})
+
+def session_detail(request, session_id):
+    session = get_object_or_404(SessionFormation, pk=session_id)
+    print("Session:", session)
+    print("Commentaires:", commentaires)
+    commentaires = Commentaire.objects.filter(session_formation=session)
+
+    # commentaires = session.commentaire_set.all()
+    return render(request, 'centres/session_detail.html', {'session': session, 'commentaires': commentaires})
+
+def formation_detail(request, pk):
+    formation = get_object_or_404(Formation, pk=pk)
+    return render(request, 'centres/formation_detail.html', {'formation': formation})
 def personne_create(request):
     if request.method == 'POST':
         form = PersonneForm(request.POST)
