@@ -5,17 +5,20 @@ body {
     background-color: #f9f9f9;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
+/* Styles pour le logo dans l'en-tête */
 header .logo {
-    width: 100px;  /* Taille ajustée pour le logo */
+    width: 80px;  /* Taille ajustée pour le logo */
     height: auto; /* Maintient le ratio de l'image */
-    max-height: 100px; /* Limite la hauteur maximale à 50 pixels */
+    max-height: 80px; /* Limite la hauteur maximale à 80 pixels */
     display: inline-block;
     vertical-align: middle; /* Aligne verticalement le logo avec le texte du site */
     object-fit: contain; /* Garde le rapport hauteur/largeur de l'image */
 }
 
+/* Styles pour la barre de navigation */
 .navbar-brand {
     display: flex;
     align-items: center;
@@ -25,14 +28,17 @@ header .logo {
     font-size: 1.5em;
     color: #007bff;
     font-weight: bold;
+    margin-left: 10px; /* Espacement entre le logo et le nom de la marque */
 }
 
+/* Styles pour l'image d'en-tête */
 .header-image {
     width: 100%;
     height: auto;
     border-bottom: 5px solid #a8dadc;
 }
 
+/* Styles pour la section de bienvenue */
 .welcome-section {
     text-align: center;
     padding: 40px;
@@ -42,6 +48,7 @@ header .logo {
     margin-bottom: 30px;
 }
 
+/* Styles pour la section des fonctionnalités */
 .features {
     display: flex;
     flex-wrap: wrap;
@@ -59,6 +66,12 @@ header .logo {
     margin: 10px;
     padding: 20px;
     text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s; /* Ajoute une transition douce */
+}
+
+.feature-card:hover {
+    transform: translateY(-5px); /* Légère élévation au survol */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Ombre plus marquée */
 }
 
 .feature-title {
@@ -67,12 +80,11 @@ header .logo {
     color: #007bff;
     text-decoration: none;
     margin-bottom: 10px;
-    transition: color 0.3s, transform 0.3s;
+    transition: color 0.3s; /* Effet de transition pour le survol */
 }
 
 .feature-title:hover {
-    color: #0056b3;
-    transform: scale(1.05);
+    color: #0056b3; /* Couleur du titre au survol */
 }
 
 .feature-description {
@@ -81,6 +93,7 @@ header .logo {
     color: #555;
 }
 
+/* Styles pour la section des commentaires */
 .comment-section {
     padding: 30px;
     background-color: #ffffff;
@@ -106,6 +119,65 @@ header .logo {
     font-weight: bold;
 }
 
+/* Styles pour les formulaires */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+form .form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+form .form-group input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+form .form-group input:focus {
+    border-color: #007bff; /* Changement de la couleur de la bordure au focus */
+    outline: none; /* Retire la bordure de focus par défaut */
+}
+
+form .form-group .form-text {
+    font-size: 0.875em;
+    color: #666;
+    margin-top: 5px;
+}
+
+form .btn-primary {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+form .btn-primary i {
+    margin-right: 8px;
+}
+
+form .btn-primary:hover {
+    background-color: #0056b3;
+    transform: scale(1.02);
+}
+
 /* Mise en page réactive */
 @media (max-width: 768px) {
     .features {
@@ -115,5 +187,10 @@ header .logo {
 
     .feature-card {
         max-width: 100%;
+    }
+
+    .registration-container {
+        width: 90%;
+        padding: 20px;
     }
 }
